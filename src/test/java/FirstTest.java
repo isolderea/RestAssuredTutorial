@@ -7,7 +7,8 @@ public class FirstTest {
 
     @Test
     public void testStatusCode(){
-        get("https://restful-booker.herokuapp.com/booking").then().statusCode(200);
+        get("https://restful-booker.herokuapp.com/booking").then().statusCode(800);
+
     }
 
 
