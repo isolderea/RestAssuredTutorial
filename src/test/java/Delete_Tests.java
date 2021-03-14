@@ -30,7 +30,7 @@ public class Delete_Tests {
         given()
                 .header("Content-Type", "application/json")
                 .header("Cookie", "token"+"="+tokenvalue)
-                .delete("https://restful-booker.herokuapp.com/booking/2")
+                .delete("https://restful-booker.herokuapp.com/booking/3")
                 .then()
                 .statusCode(201);
     }
@@ -39,6 +39,6 @@ public class Delete_Tests {
     //Get the information for the Booking that we changed and check if the changes where made
     @Test
     public void GetUpdate(){
-        get("https://restful-booker.herokuapp.com/booking/2").then().statusCode(404);
+        get("https://restful-booker.herokuapp.com/booking/3").then().statusCode(404);
     }
 }
