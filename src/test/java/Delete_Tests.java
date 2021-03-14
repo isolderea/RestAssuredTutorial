@@ -8,37 +8,39 @@ import static org.hamcrest.CoreMatchers.containsString;
 
 public class Delete_Tests {
 
-    //Generate a token
-
+    //Generate token
     @BeforeTest
     public String getToken(){
 
         return given()
-                      .header("Content-Type", "application/json")
-                      .body("{\n    \"username\" : \"admin\",\n    \"password\" : \"password123\"\n}")
-                      .post("https://restful-booker.herokuapp.com/auth")
-                      .then()
-                      .extract().jsonPath().getString("token");
+                .header("Content-Type", "application/json")
+                .body("{\n    \"username\" : \"admin\",\n    \"password\" : \"password123\"\n}")
+                .post("https://restful-booker.herokuapp.com/auth")
+                .then()
+                .extract().jsonPath().getString("token");
 
     }
 
     String tokenvalue = getToken();
 
-    //Use the token to make an update
+    //Perform the Deletion
     @Test
-    public void UpdateBooking(){
+    public void DeleteBooking(){
+
         given()
                 .header("Content-Type", "application/json")
                 .header("Cookie", "token"+"="+tokenvalue)
-                .delete("https://restful-booker.herokuapp.com/booking/3")
+                .delete("https://restful-booker.herokuapp.com/booking/2")
                 .then()
                 .statusCode(201);
     }
 
 
-    //Get the information for the Booking that we changed and check if the changes where made
+
+    //Check if the Booking was deleted
     @Test
-    public void GetUpdate(){
-        get("https://restful-booker.herokuapp.com/booking/3").then().statusCode(404);
+    public void CheckThatBookingIsDeleted(){
+        get("https://restful-booker.herokuapp.com/booking/2").then().statusCode(404);
     }
+
 }
