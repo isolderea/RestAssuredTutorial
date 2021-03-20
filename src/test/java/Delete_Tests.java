@@ -24,7 +24,7 @@ public class Delete_Tests {
     String tokenvalue = getToken();
 
     //Perform the Deletion
-    @Test
+    @Test(priority = 1)
     public void DeleteBooking(){
 
         given()
@@ -38,7 +38,7 @@ public class Delete_Tests {
 
 
     //Check if the Booking was deleted
-    @Test
+    @Test(priority = 2)
     public void CheckThatBookingIsDeleted(){
         get("https://restful-booker.herokuapp.com/booking/2").then().statusCode(404);
     }
