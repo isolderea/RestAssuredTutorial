@@ -1,0 +1,10 @@
+{
+  "firstname": "Rester",
+  "lastname": "Test",
+  "totalprice": 250,
+  "depositpaid": true,
+  "bookingdates": {
+    "checkin": "2021-07-05",
+    "checkout": "2021-10-26"
+  }
+}
