@@ -32,21 +32,21 @@ public class Send_Query_Parameters {
         System.out.println(stringResponse);
     }
 
-
+    //Get a specific booking
     @Test(priority = 2)
     public void getBooking(){
 
         Response response = given()
                 .when()
-                .queryParam("postId", "1")
-                .get("1")
+                .queryParam("parameter_name", "value")
+                .get("/1")
                 .then().contentType("application/json")
                 .extract()
                 .response();
 
         System.out.println("=============================Beginning of TEST 2 =================================");
         String stringResponse = response.asString();
-        System.out.println(stringResponse);;
+        System.out.println(stringResponse);
     }
 }
 
