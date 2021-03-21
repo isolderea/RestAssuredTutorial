@@ -12,7 +12,7 @@
       "type": "integer"
     },
     "depositpaid": {
-      "type": "string"
+      "type": "boolean"
     },
     "bookingdates": {
       "type": "object",
